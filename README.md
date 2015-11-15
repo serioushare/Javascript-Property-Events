@@ -2,7 +2,7 @@
 
 JPE is a small Javascript library that adds events to user defined properties. It does this by extending the 'Object.defineProperty' function. The descriptor argument (third argumen) now accepts some extended properties that will define the base event handlers of the property.
 
-### Add property 'usesSomething' with event to document with Javascript
+#### Add boolean property 'property' with event to document with Javascript
 This is the classical way of defining a property, 
 ```javascript
 Object.defineProperty(document, "property", {
@@ -33,7 +33,7 @@ function doOnChange(event){
 }
 ```
 
-##### Add property 'usesSomething' with event to document with JPE
+#### Add property 'property' with event to document with JPE
 
 
 
