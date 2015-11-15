@@ -19,7 +19,7 @@ var usesSomething = false;
 
 function doOnChange(){
     console.info("This function is called because document.usesSomething is changed. "+
-                 "It took 2 if statements (check for type, and compare to previous value) before it was called.");
+        "It took 2 if statements (check for type, and compare to previous value) before it was called.");
 }
 ```
 
@@ -38,7 +38,7 @@ var usesSomething = false;
 
 function doOnChange(){
     console.info("This function is called because document.usesSomething is changed. "+
-                 "It took 1 if statement (check for type) before it was called.");
+        "It took 1 if statement (check for type) before it was called.");
 }
 ```
 
@@ -54,6 +54,6 @@ Object.defineProperty(document, "usesSomething", {
 
 function doOnChange(){
     console.info("This function is called because document.usesSomething is changed. "+
-                 "There was no need for if statements before it was called.");
+        "There was no need for if statements before it was called.");
 }
 ```
