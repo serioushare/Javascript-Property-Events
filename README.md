@@ -6,24 +6,26 @@ JPE is a small Javascript library that adds events to user defined properties. I
 This is the classical way of defining a property, leaving you with nothing but is mere excistence. This means that all value storage, recovery, type checks, and responce calls (quasy-events) are yours to deal with. And I'm not even talking about bubbling or preventing default behavior.
 ```javascript
 Object.defineProperty(document, "property", {
-    get:function(){return myProperty},
-    set:function(value){
-        if(typeof(value)==="boolean"){   // check if the input is of the type 'boolean'
-            if(myProperty!=value){    // check if the input is not the stored value
-                var event = {
+    get:function(){                     // Return the value, stored somewhere outside the property
+        return myProperty               // This poses the risk of changing it wwithout checks and triggers
+    },
+    set:function(value){                // Store the value outside the property, with all risks associated
+        if(typeof(value)==="boolean"){  // check if the input is of the type 'boolean'
+            if(myProperty!=value){      // check if the input is not the stored value
+                var event = {           // Create an Object to send to the eventHandler
                     parent:this,
                     caller:this.property,
                     type:"change",
                     oldval:myProperty,
                     newval:value,
                 }
-                doOnChange(event);
-                myProperty = value;
+                doOnChange(event);      // Call the event handler
+                myProperty = value;     // Stroe the value
             }
         }
     }
 })
-var myProperty = false;
+var myProperty = false;                 // This value could be changed without doOnChange being called
 
 function doOnChange(event){
     console.log("document.property changed from '" + event.oldval +
@@ -33,15 +35,14 @@ function doOnChange(event){
 }
 ```
 #### Add boolean property 'property' with event to document with JPE
-JPE extends the functionality of Object.definePrototype to handle initialization, input type checking, and throws events when
-the property is accessed in any way. You can also ommit the return statement in the getter, and only use the variables within the property's own scope, keeping the current scope clean and save a line or two.
+JPE extends the functionality of Object.definePrototype to handle initialization, input type checking, and throws events when the property is accessed in any way. You can also ommit the return statement in the getter, and only use the variables within the property's own scope, keeping the current scope clean and save a line or two.
 ```javascript		
 Object.defineProperty(document, "property", {
-    default:false,
-    type:"boolean",
-    get:function(){},
-    set:function(value){},
-    onchange:doOnChange,
+    default:false,              // The initial value of the property
+    type:"boolean",             // Used for type checking when the value is set
+    get:function(){},           // The value is always stored inside, and returned if get returns empty
+    set:function(value){},      // You can leave this empy when using the internal value
+    onchange:doOnChange,        // Only called when the value actually changed
 })
 
 function doOnChange(event){
@@ -51,3 +52,6 @@ function doOnChange(event){
                                                "." + event.target + "'");
 }}
 ```
+
+
+
