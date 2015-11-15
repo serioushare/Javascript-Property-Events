@@ -26,25 +26,6 @@ function doOnChange(){
 ### Add property 'usesSomething' to document with JPE
 ```javascript
 Object.defineProperty(document, "usesSomething", {
-    get:function(){return usesSomething},
-    set:function(value){
-        if(typeof(value)==="boolean"){   // check if the input is of the type 'boolean'
-            usesSomething = value;
-        }
-    },
-    onchange:doOnChange
-})
-var usesSomething = false;
-
-function doOnChange(){
-    console.info("This function is called because document.usesSomething is changed. "+
-        "It took 1 if statement (check for type) before it was called.");
-}
-```
-
-### Add property 'usesSomething' to document with JPEX
-```javascript
-Object.defineProperty(document, "usesSomething", {
     default:false,
     type:"boolean",
     get:function(){},
