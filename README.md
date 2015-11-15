@@ -2,8 +2,33 @@
 
 JPE is a small Javascript library that adds events to user defined properties. It does this by extending the 'Object.defineProperty' function. The descriptor argument (third argument) now accepts some extended properties that will define the base event handlers of the property.
 
-#### Add boolean property 'property' with event to document with Javascript
+## Definition
+
+###### Syntax
+
+```javascript
+Object.defineProperty(obj, prop, descriptor)
+```
+
+###### New destriptor properties
+
+| property | function                            |
+| -------- | ------------------------------------|
+| default  | The initial value for the property. |
+| type     | Expected value type, prevents the property to be set with a different type.Only used when set. |
+
+| events   | function                            |
+|----------|-------------------------------------|
+| onchange | Called when the value of the property changed. |
+| onset    | Called when the value of the property is set, even if it didn't change. |
+| onget    | Called when the value of the property is revrieved. |
+
+## Comparison Example
+
+###### Add boolean property 'property' with event to document without JPE
+
 This is the classical way of defining a property, leaving you with nothing but is mere excistence. This means that all value storage, recovery, type checks, and responce calls (quasy-events) are yours to deal with. And I'm not even talking about bubbling or preventing default behavior.
+
 ```javascript
 Object.defineProperty(document, "property", {
     get:function(){                     // Return the value, stored somewhere outside the property
@@ -34,8 +59,11 @@ function doOnChange(event){
                                                "." + event.caller + "'");
 }
 ```
-#### Add boolean property 'property' with event to document with JPE
-JPE extends the functionality of Object.definePrototype to handle initialization, input type checking, and throws events when the property is accessed in any way. You can also ommit the return statement in the getter, and only use the variables within the property's own scope, keeping the current scope clean and save a line or two.
+
+###### Add boolean property 'property' with event to document with JPE
+
+JPE extends the functionality of Object.defineProperty to handle initialization, input type checking, and throws events when the property is accessed in any way. You can also ommit the return statement in the getter, and only use the variables within the property's own scope, keeping the current scope clean and save a line or two.
+
 ```javascript		
 Object.defineProperty(document, "property", {
     default:false,              // The initial value of the property
