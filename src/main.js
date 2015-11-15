@@ -18,12 +18,12 @@
  * }                                                                                                *
  ****************************************************************************************************/
 
-imports("src/propertyEvent.js");
+imports("propertyEvent.js");
 
 (function(){
 	var defineProperty = clone(Object.defineProperty, "Object.defineProperty");
-	imports("src/defineProperty.js");
+	imports("defineProperty.js");
 
-	imports("src/clone.js");
+	imports("clone.js");
 }());
 

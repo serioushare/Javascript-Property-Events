@@ -1,11 +1,11 @@
 <?
 /*
-include("src/propertyEvent.js");
-include("src/main.js");
-include("src/defineProperty.js");
-include("src/clone.js");
+include("main.js");
+include("propertyEvent.js");
+include("defineProperty.js");
+include("clone.js");
 */
-imports("src/main.js");
+imports("main.js");
 
 $holdstack = array();
 function imports($file){
