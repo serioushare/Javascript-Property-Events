@@ -16,7 +16,9 @@ Object.defineProperty(obj, prop, descriptor)
 | ------------ | ------------------------------------|
 | default      | The initial value for the property. |
 | type         | Expected value type, prevents the property to be set with a different type.Only used when set. |
-| :**events**: | :**function**:                      |
+
+| events       | trigger                             |
+| ------------ | ------------------------------------|
 | onchange     | Called when the value of the property changed. |
 | onset        | Called when the value of the property is set, even if it didn't change. |
 | onget        | Called when the value of the property is revrieved. |
