@@ -12,17 +12,17 @@ Object.defineProperty(obj, prop, descriptor)
 
 ###### New destriptor properties
 
-| property     | function                            |
-| ------------ | ------------------------------------|
-| default      | The initial value for the property. |
-| type         | Expected value type, prevents the property to be set with a different type.Only used when set. |
+| property     | function
+| ------------ | ------------------------------------
+| default      | The initial value for the property.
+| type         | Expected value type, prevents the property to be set with a different type.Only used when set.
 
-| events       | trigger                             |
-| ------------ | ------------------------------------|
-| onchange     | Called when the value of the property changed. |
-| onset        | Called when the value of the property is set, even if it didn't change. |
-| onget        | Called when the value of the property is revrieved. |
-
+| events       | trigger
+| ------------ | ------------------------------------
+| onchange     | Called when the value of the property changed.
+| onset        | Called when the value of the property is set, even if it didn't change.
+| onget        | Called when the value of the property is revrieved.
+| onerror      | Called when an error accurs with the property.
 ## Comparison Example
 
 ###### Add boolean property 'property' with event to document without JPE
