@@ -55,8 +55,8 @@ var myProperty = false;                 // This value could be changed without d
 function doOnChange(event){
     console.log("document.property changed from '" + event.oldval +
                                           "' to '" + event.newval +
-                                          "' in '" + event.parent +
-                                               "." + event.caller + "'");
+                                          "' in '" + event.parent.name +
+                                               "." + event.caller.name + "'");
 }
 ```
 
@@ -76,8 +76,8 @@ Object.defineProperty(document, "property", {
 function doOnChange(event){
     console.log("document.property changed from '" + event.previousValue +
                                           "' to '" + event.returnValue +
-                                          "' in '" + event.srcObject +
-                                               "." + event.target + "'");
+                                          "' in '" + event.srcObject.name +
+                                               "." + event.target.name + "'");
 }}
 ```
 
