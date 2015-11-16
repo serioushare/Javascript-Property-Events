@@ -5,24 +5,12 @@
  * @remark:                                                                                         *
  *   Class representing the events called from the property.                                        *
  *********************************************************************************[ Serious Hare ]***/
-function PropertyEvent(type, details){
+function PropertyEventError(type, details){
 	var timestamp = Date.now();
-	this.__proto__ = new Event(type);
+	this.__proto__ = new PropertyEvent(type, details);
 	Object.defineProperties(this, {
-		bubbles:          {value:false,                 enumerable:true}, // Bubble the event if object is a Dom Element.
-		cancelBubble:     {value:true,                  enumerable:true}, // Stop the bubbling.
-		cancelable:       {value:true,                  enumerable:true}, // Whether it's possible to cancle the event.
-		currentTarget:    {value:details.target,        enumerable:true}, // 
-		eventPhase:       {value:0,                     enumerable:true}, //
-		isTrusted:        {value:true,                  enumerable:true}, //
-		path:             {value:[],                    enumerable:true}, //
-		previousValue:    {value:details.previousValue, enumerable:true}, // The previous property value.
-		srcObject:        {value:details.srcObject,     enumerable:true}, //
-		target:           {value:details.target,        enumerable:true}, //
-		timeStamp:        {value:timestamp,             enumerable:true}, //
-		type:             {value:type,                  enumerable:true}, //
-		defaultPrevented: {value:false,                 enumerable:true, configurable:true}, // Wherther the default action of the property is prevented.
-		returnValue:      {value:details.returnValue,   enumerable:true, configurable:true}, // The current property value.
+		errorCode:        {value:details.errorCode,     enumerable:true}, //
+		errorText:        {value:details.errorText,     enumerable:true}, //
 	});
 	
 	this.path.push(details.srcObject[details.target]); // Add property to path

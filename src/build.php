@@ -2,6 +2,7 @@
 /*
 include("main.js");
 include("propertyEvent.js");
+include("propertyEventError.js");
 include("defineProperty.js");
 include("clone.js");
 */

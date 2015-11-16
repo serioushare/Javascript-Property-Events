@@ -1,12 +1,11 @@
-/**[ function clone(object) ]*************************************************************************
- * @param object: object/function     | Object or Function to be cloned.                             *
- * @remark:                                                                                          *
- *   Create a clone of the given object or function, and returns it. An                              *
- *   optional string containing a name for event caller identification and                           *
- *   console output, when cloning an anonimous function.                                             *
- *****************************************************************************************************/
+/***[ function clone(object) ]***********************************************************************
+ * @param object: object/function     | Object or Function to be cloned.                            *
+ *                                                                                                  *
+ * @remark:                                                                                         *
+ *   Create a clone of the given object or function, and returns it.                                *
+ *********************************************************************************[ Serious Hare ]***/
 	function clone(object){
-		var name = arguments[1]||object.name,
+		var name = arguments[1]||object.name||object.constructor.name,
 			object2=object,
 			clone=function(){return object2.apply(object,arguments)};
 		
@@ -17,6 +16,6 @@
 			}
 		}
 		
-		console.log("created clone of '"+name+"'")
+	// Return the cloned object
 		return object2;
 	}
