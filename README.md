@@ -21,7 +21,6 @@ Object.defineProperty(obj, prop, descriptor)
 | ------------ | ------------------------------------
 | onchange     | Called when the value of the property changed.
 | onset        | Called when the value of the property is set, even if it didn't change.
-| onget        | Called when the value of the property is revrieved.
 | onerror      | Called when an error accurs with the property.
 ## Comparison Example
 
@@ -76,8 +75,8 @@ Object.defineProperty(document, "property", {
 function doOnChange(event){
     console.log("document.property changed from '" + event.previousValue +
                                           "' to '" + event.returnValue +
-                                          "' in '" + event.srcObject.name +
-                                               "." + event.target.name + "'");
+                                          "' in '" + (event.srcObject.name||event.srcObject.constructor.name) +
+                                               "." + event.target + "'");
 }}
 ```
 
