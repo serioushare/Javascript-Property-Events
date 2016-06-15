@@ -30,10 +30,10 @@ This is the classical way of defining a property, leaving you with nothing but i
 
 ```javascript
 Object.defineProperty(document, "property", {
-    get:function(){                     // Return the value, stored somewhere outside the property
-        return myProperty               // This poses the risk of changing it wwithout checks and triggers
+    get:function(){                     // Return the value
+        return myProperty               
     },
-    set:function(value){                // Store the value outside the property, with all risks associated
+    set:function(value){                // Store the value
         if(typeof(value)==="boolean"){  // check if the input is of the type 'boolean'
             if(myProperty!=value){      // check if the input is not the stored value
                 var event = {           // Create an Object to send to the eventHandler
@@ -44,7 +44,7 @@ Object.defineProperty(document, "property", {
                     newval:value,
                 }
                 doOnChange(event);      // Call the event handler
-                myProperty = value;     // Stroe the value
+                myProperty = value;     // Store the value outside the property, with all risks associated
             }
         }
     }
