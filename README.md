@@ -13,6 +13,7 @@ Object.defineProperty(obj, prop, descriptor)
 ###### New destriptor properties
 
 | property     | function
+| ------------ | ------------------------------------
 | default      | The initial value for the property.
 | type         | Expected value type, prevents the property to be set with a different type.Only used when set.
 
